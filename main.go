@@ -1,6 +1,7 @@
 package main
 
 import (
+	"pharmaciano/controllers"
 	"pharmaciano/initializers"
 
 	"github.com/gin-gonic/gin"
@@ -9,6 +10,7 @@ import (
 func init() {
 	initializers.LoadEnvVariables()
 	initializers.ConnectToDb()
+	initializers.SyncDatabase()
 }
 func main() {
 	router := gin.Default()
@@ -17,5 +19,7 @@ func main() {
 			"message": "pong",
 		})
 	})
+
+	router.POST("/signup", controllers.Signup)
 	router.Run()
 }
