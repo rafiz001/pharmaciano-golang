@@ -3,6 +3,7 @@ package main
 import (
 	"pharmaciano/controllers"
 	"pharmaciano/initializers"
+	"pharmaciano/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -22,5 +23,6 @@ func main() {
 
 	router.POST("/signup", controllers.Signup)
 	router.POST("/signin", controllers.Sigin)
+	router.GET("/validate", middleware.RequireAuth, controllers.Validate)
 	router.Run()
 }
