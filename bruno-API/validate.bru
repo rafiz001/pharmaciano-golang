@@ -1,0 +1,20 @@
+meta {
+  name: validate
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:3000/validate
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzE0MzE2NDMsInN1YiI6MTF9.bobSFvdPEy3FasOm8dYS3hw4gmMbxtLrdDtNgSnC4zs
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
